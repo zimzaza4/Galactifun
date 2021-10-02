@@ -26,4 +26,4 @@ jobs:
       if: success()
       with:
         name: Galactifun
-        path: target/Galactifun v1.0.0.jar
+        path: target/Galactifun vALPHA.jar
