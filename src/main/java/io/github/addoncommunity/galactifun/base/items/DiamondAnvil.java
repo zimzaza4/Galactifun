@@ -30,13 +30,13 @@ public final class DiamondAnvil extends AContainer {
         super(CoreItemGroup.MACHINES, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
         TYPE.sendRecipesTo((ing, res) ->
         {
-            if (Arrays.copyOf(ing, 2)!=null){
-                System.out.println("Reg Item!!! :\n------------\n " + Arrays.toString(ing));
-                for (ItemStack i : ing){
+
+                System.out.println("Reg Item :\n------------\n " + Arrays.toString(ing) + "\n-----------");
+                for (ItemStack i : Arrays.copyOf(ing, 2)){
                     System.out.println(i.getAmount());
                 }
                 this.registerRecipe(10, Arrays.copyOf(ing, 2), new ItemStack[] { res });
-            }
+
         });
     }
 
