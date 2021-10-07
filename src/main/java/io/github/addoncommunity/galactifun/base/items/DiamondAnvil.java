@@ -5,6 +5,10 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 
+import io.github.addoncommunity.galactifun.Galactifun;
+
+import io.github.mooy1.infinitylib.core.AbstractAddon;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -24,7 +28,14 @@ public final class DiamondAnvil extends AContainer {
 
     public DiamondAnvil(SlimefunItemStack item, ItemStack[] recipe) {
         super(CoreItemGroup.MACHINES, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
-        TYPE.sendRecipesTo((ing, res) -> this.registerRecipe(10, Arrays.copyOf(ing, 2), new ItemStack[] { res }));
+        TYPE.sendRecipesTo((ing, res) ->
+        {
+            if (Arrays.copyOf(ing, 2)==null){
+                warn("Null Item!!! :\n------------\n " + recipe.toString()  );
+            } else {
+                this.registerRecipe(10, Arrays.copyOf(ing, 2), new ItemStack[] { res });
+            }
+        });
     }
 
     @Override
