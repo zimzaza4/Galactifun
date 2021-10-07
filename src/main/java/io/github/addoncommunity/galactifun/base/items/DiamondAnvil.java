@@ -32,6 +32,9 @@ public final class DiamondAnvil extends AContainer {
         {
             if (Arrays.copyOf(ing, 2)!=null){
                 System.out.println("Reg Item!!! :\n------------\n " + Arrays.toString(ing));
+                for (ItemStack i : ing){
+                    System.out.println(i.getAmount());
+                }
                 this.registerRecipe(10, Arrays.copyOf(ing, 2), new ItemStack[] { res });
             }
         });
